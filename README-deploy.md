@@ -14,21 +14,21 @@ Você pode usar o script `scripts/bootstrap-vps.sh` (abaixo) para automatizar. E
 Passos principais (se fizer manualmente):
 - Criar usuário e diretório do app
 - Instalar Node LTS, Git, Nginx, Certbot
-- Copiar o código para `/home/baileys`
+- Copiar o código para `/home/ubuntu/baileys`
 - `npm ci && npm run build`
 - Configurar PM2 com `ecosystem.config.js`
 
 ## 2) Preservar/Migrar sessão (baileys_auth_info)
 
 Se você já possui sessão ativa na instância antiga, copie os diretórios:
-- `/home/baileys/baileys_auth_info`
-- `/home/baileys/tmp`
+- `/home/baileys/ubuntu/baileys_auth_info`
+- `/home/ubuntu/baileys/tmp`
 
 Sem esses diretórios, será necessário parear novamente (QR/pairing code). Sempre faça backup antes de qualquer migração.
 
 ## 3) Variáveis de ambiente
 
-Crie `/home/baileys/.env` com permissão 600 (dono `baileys`):
+Crie `/home/ubuntu/baileys/.env` com permissão 600 (dono `baileys`):
 ```
 ADMIN_TOKEN=uma_chave_muito_forte_aqui
 PORT=3333
@@ -40,7 +40,7 @@ NODE_ENV=production
 - Instale PM2: `sudo npm i -g pm2`
 - Inicie a aplicação:
 ```
-sudo -u baileys pm2 start /home/baileys/ecosystem.config.js --env production
+sudo -u baileys pm2 start /home/ubuntu/baileys/ecosystem.config.js --env production
 sudo -u baileys pm2 save
 ```
 - Habilite o startup via systemd (execute o comando impresso):

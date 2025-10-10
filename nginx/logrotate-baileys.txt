@@ -1,4 +1,4 @@
-/home/baileys/wa-logs.txt {
+/home/ubuntu/baileys/wa-logs.txt {
     daily
     rotate 14
     missingok
