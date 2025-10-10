@@ -1,0 +1,15 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "allowImportingTsExtensions": false,
+    "noEmit": false,
+    "declaration": false,
+  "declarationMap": false,
+  // Relax some strict checks for server/dev runs to avoid hundreds of type errors
+  // coming from exactOptionalPropertyTypes and other strong checks in the repo.
+    "exactOptionalPropertyTypes": false,
+    "noUncheckedIndexedAccess": false
+  }
+}

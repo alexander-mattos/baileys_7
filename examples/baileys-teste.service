@@ -1,0 +1,15 @@
+[Unit]
+Description=Baileys Test API
+After=network.target
+
+[Service]
+Type=simple
+User=baileys
+WorkingDirectory=/opt/baileys-teste
+ExecStart=/usr/bin/node /opt/baileys-teste/lib/server.js
+Restart=on-failure
+Environment=NODE_ENV=production
+Environment=ADMIN_TOKEN=__YOUR_TOKEN__
+
+[Install]
+WantedBy=multi-user.target

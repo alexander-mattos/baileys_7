@@ -1,0 +1,12 @@
+node_modules/
+lib/
+dist/
+.env
+tmp/
+scripts/
+wa-logs.txt
+baileys_auth_info/
+*.local
+*.log
+/.vscode/
+*.tsbuildinfo
