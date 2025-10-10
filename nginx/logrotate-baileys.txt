@@ -1,0 +1,9 @@
+/home/baileys/wa-logs.txt {
+    daily
+    rotate 14
+    missingok
+    notifempty
+    compress
+    copytruncate
+    create 640 baileys baileys
+}
