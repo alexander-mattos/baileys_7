@@ -2,7 +2,7 @@ import NodeCache from '@cacheable/node-cache'
 import { AsyncLocalStorage } from 'async_hooks'
 import { Mutex } from 'async-mutex'
 import { randomBytes } from 'crypto'
-import PQueue from 'p-queue'
+import SimpleQueue from './simple-queue'
 import { DEFAULT_CACHE_TTLS } from '../Defaults'
 import type {
 	AuthenticationCreds,
@@ -120,7 +120,7 @@ export const addTransactionCapability = (
 	const txStorage = new AsyncLocalStorage<TransactionContext>()
 
 	// Queues for concurrency control
-	const keyQueues = new Map<string, PQueue>()
+	const keyQueues = new Map<string, SimpleQueue>()
 	const txMutexes = new Map<string, Mutex>()
 
 	// Pre-key manager for specialized operations
@@ -129,9 +129,9 @@ export const addTransactionCapability = (
 	/**
 	 * Get or create a queue for a specific key type
 	 */
-	function getQueue(key: string): PQueue {
+	function getQueue(key: string): SimpleQueue {
 		if (!keyQueues.has(key)) {
-			keyQueues.set(key, new PQueue({ concurrency: 1 }))
+			keyQueues.set(key, new SimpleQueue())
 		}
 
 		return keyQueues.get(key)!
