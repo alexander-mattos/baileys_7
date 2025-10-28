@@ -77,5 +77,8 @@ git push -u origin main
 ## Troubleshooting
 - If you get an esbuild transform error complaining about `??` and `||`, rewrite mixed expressions or run with `tsc --noEmit` to find TS issues.
 
+## Sobre o botão "Criar PR"
+No ambiente do Codex você verá um botão **Criar PR** depois de efetuar um `git commit`. Esse botão apenas envia o resumo que você montou para o revisor humano, simulando a abertura de um pull request. Ele não interage com o GitHub real; é uma etapa obrigatória do fluxo para compartilhar o que foi feito.
+
 ## License
 MIT
